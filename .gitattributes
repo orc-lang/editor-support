@@ -55,3 +55,9 @@ licenses.yml  text linguist-documentation
 
 help/**  linguist-documentation
 licenses/**  linguist-documentation
+
+# Editor support specific
+*.vim  text linguist-language=vim
+*.tmLanguage text  linguist-language=XML
+*.plist text  linguist-language=XML
+*.el   text linguist-language=emacs
