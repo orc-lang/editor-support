@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>/Orc/Combinator</key>
+	<string>/Orc/Combinator</string>
+	<key>/Orc/Comment</key>
+	<string>Comment</string>
+	<key>/Orc/Identifier</key>
+	<string>/Orc/Identifier</string>
+	<key>/Orc/Keyword</key>
+	<string>_Default.Keywords</string>
+	<key>/Orc/Number</key>
+	<string>_Default.Numbers</string>
+	<key>/Orc/NumericLiteral</key>
+	<string>/Orc/NumericLiteral</string>
+	<key>/Orc/Operator</key>
+	<string>/Orc/Operator</string>
+	<key>/Orc/OrcDocComment</key>
+	<string>JavadocComment</string>
+	<key>/Orc/OrcDocTag</key>
+	<string>JavadocComment.JavadocTags</string>
+	<key>/Orc/PreludeName</key>
+	<string>/Orc/PreludeName</string>
+	<key>/Orc/SingleLineComment</key>
+	<string>SingleComment</string>
+	<key>/Orc/String</key>
+	<string>Strings</string>
+	<key>_Default</key>
+	<string>_Default</string>
+</dict>
+</plist>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array/>
+	<key>name</key>
+	<string>OrcDoc</string>
+	<key>scopeName</key>
+	<string>text.html.orcdoc</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>comment.block.documentation.orcdoc</string>
+			<key>begin</key>
+			<string>(\{--)\s*$</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.begin.orcdoc</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>text.html</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#inline</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>^((\@)\w+)</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.documentation.orcdoc</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.keyword.orcdoc</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.documentation.tag.orcdoc</string>
+				</dict>
+			</array>
+			<key>end</key>
+			<string>--\}</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.end.orcdoc</string>
+				</dict>
+			</dict>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>inline</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>comment</key>
+					<string>This prevents &lt; characters in commented source from starting
+								a tag that will not end. List of allowed tags taken from
+								java checkstyle.</string>
+					<key>match</key>
+					<string>&lt;(?!(a|abbr|acronym|address|area|b|bdo|big|blockquote|br|caption|cite|code|colgroup|dd|del|div|dfn|dl|dt|em|fieldset|font|h1toh6|hr|i|img|ins|kbd|li|ol|p|pre|q|samp|small|span|strong|sub|sup|table|tbody|td|tfoot|th|thread|tr|tt|u|ul)\b[^&gt;]*&gt;)</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>text.html.basic</string>
+				</dict>
+				<dict>
+					<key>name</key>
+					<string>markup.underline.link</string>
+					<key>match</key>
+					<string>((https?|s?ftp|ftps|file|smb|afp|nfs|(x-)?man|gopher|txmt)://|mailto:)[-:@a-zA-Z0-9_.,~%+/?=&amp;#;]+(?&lt;![-.,?:#;])</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>uuid</key>
+	<string>1900E436-1357-436F-B463-C72563EA488A</string>
+</dict>
+</plist>

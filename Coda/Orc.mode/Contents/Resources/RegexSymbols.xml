@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <blocks>
+        <beginregex>{</beginregex>
+        <endregex>}</endregex>
+    </blocks>
+
+    <symbol id="Val" image="SymbolV" ignoreblocks="yes" useforautocomplete="yes">
+        <regex>val\s+(?'name'[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*)\s*(?:\:\:\s*[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*)?\s*=</regex>
+        <postprocess>
+            <find>\s*\:\:\s*[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*\s*</find>
+            <replace></replace>
+            <find>\s+</find>
+            <replace> </replace>
+            <find>\s+$</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="ValPattern" image="SymbolV" ignoreblocks="yes" useforautocomplete="no">
+        <regex>val\s+(?:(?![\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*\s*(?:\:\:\s*[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*)?\s*=))([^=]+)=</regex>
+        <postprocess>
+            <find>\s*\:\:\s*[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*\s*</find>
+            <replace></replace>
+            <find>\s+</find>
+            <replace> </replace>
+            <find>\s+$</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="Def" image="SymbolF()" ignoreblocks="yes" useforautocomplete="yes">
+		<regex>def\s+(?'name'[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*\s*(?:\[[^\]]*\])?\s*\((?'arguments'[^)]*)\))\s*(?:\:\:\s*[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*)?\s*=</regex>
+        <postprocess>
+            <find>\s*\:\:\s*[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*\s*</find>
+            <replace></replace>
+            <find>\s+</find>
+            <replace> </replace>
+            <find>\s+$</find>
+            <replace></replace>
+        </postprocess>
+        <arguments>([\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*)\s*(?:\:\:\s*[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*)?[ \n\t\r,]*</arguments>
+    </symbol>
+
+    <symbol id="DefPattern" image="SymbolF()" ignoreblocks="yes" useforautocomplete="no">
+		<regex>def\s+(?:(?![\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*\s*(?:\[[^\]]*\])?\s*\([^)]*\)\s*(?:\:\:\s*[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*)?\s*=))((?![^=]+\sdef\s.*=)[^=]+)=</regex>
+        <postprocess>
+            <find>\s*\:\:\s*[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*\s*</find>
+            <replace></replace>
+            <find>\s+</find>
+            <replace> </replace>
+            <find>\s+$</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="Type" image="SymbolT" ignoreblocks="yes" useforautocomplete="yes">
+        <regex>type\s+(?'name'[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*)</regex>
+        <postprocess>
+            <find>\s+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="ImportClass" image="SymbolC" ignoreblocks="yes" useforautocomplete="yes">
+        <regex>import\s+(?:class)\s+(?'name'[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*)</regex>
+        <postprocess>
+            <find>\s+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="ImportSite" image="SymbolS" ignoreblocks="yes" useforautocomplete="yes">
+        <regex>import\s+(?:site)\s+(?'name'[\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*)</regex>
+        <postprocess>
+            <find>\s+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="Include" image="Symbol#" ignoreblocks="yes" useforautocomplete="yes">
+        <regex>include\s+\"(?'name'[^\"\n\r]*)\"</regex>
+        <postprocess>
+            <find>\s+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="MergeConflict" font-weight="bold" image="SymbolWarn" ignoreblocks="no" show-in-comments="yes" useforautocomplete="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;([\n\r]|.)*?======([\n\r]|.)*?&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+
+</symbols>

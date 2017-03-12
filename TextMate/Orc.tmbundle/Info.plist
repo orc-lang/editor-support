@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string></string>
+	<key>contactName</key>
+	<string>John A. Thywissen</string>
+	<key>description</key>
+	<string>The Orc programming language.</string>
+	<key>name</key>
+	<string>Orc</string>
+	<key>uuid</key>
+	<string>9A85244B-FC1B-403E-83C0-4451C3D620E9</string>
+</dict>
+</plist>

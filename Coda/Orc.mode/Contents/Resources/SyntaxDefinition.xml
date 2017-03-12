@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>Orc</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_']]></charsintokens> <!-- Valid Characters for Variables -->
+        <!-- <charsdelimitingtokens></charsdelimitingtokens> -->
+        <folding toplevel="1" />
+    </head>
+
+    <states>
+
+        <default id="Base" usesymbolsfrommode="Orc" useautocompletefrommode="Orc" scope="meta.default.orc">
+
+            <state id="String" type="string" scope="string.double.orc">
+                <begin><regex>"</regex></begin>
+                <end><regex>(?&lt;!\\)(\\\\)*"</regex></end>
+            </state>
+
+            <keywords id="Number" useforautocomplete="no" scope="constant.numeric.orc">
+                <regex>(-?[0-9]+)([.][0-9]+)?([Ee][+-]?([0-9]+))?</regex>
+            </keywords>
+
+            <keywords id="Combinator" useforautocomplete="no" scope="keyword.control.combinator.orc">
+                <regex>(\&lt;(?!\:)|(?&lt;!\:)\&gt;|\||\;|\{\||\|\})</regex>
+            </keywords>
+
+            <keywords id="Operator" useforautocomplete="no" scope="language.operator.orc">
+                <regex>(\+|\-|\*|\/|\%|\*\*|\&amp;\&amp;|\|\||\~|\=|\&lt;\:|\:\&gt;|\&lt;\=|\&gt;\=|\/\=|\:|\.|\?|\:\=|\#|\:\:|\:\!\:)</regex>
+            </keywords>
+
+            <keywords id="Identifier" useforautocomplete="no" scope="language.variable.orc">
+                <regex>([\p{L}\p{Nl}][\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}']*)</regex>
+            </keywords>
+
+            <keywords id="Keyword" useforautocomplete="yes" scope="keyword.orc">
+                <string>as</string>
+                <string>def</string>
+                <string>else</string>
+                <string>if</string>
+                <string>import</string>
+                <string>include</string>
+                <string>lambda</string>
+                <string>signal</string>
+                <string>stop</string>
+                <string>then</string>
+                <string>type</string>
+                <string>val</string>
+                <string>_</string>
+            </keywords>
+
+            <keywords id="NumericLiteral" useforautocomplete="yes" scope="constant.numeric.keyword.orc">
+                <string>true</string>
+                <string>false</string>
+                <string>null</string>
+            </keywords>
+
+            <keywords id="PreludeName" useforautocomplete="yes" scope="support.orc">
+                <string>Top</string>
+                <string>Bot</string>
+                <string>String</string>
+                <string>Number</string>
+                <string>Boolean</string>
+                <string>Integer</string>
+                <string>Signal</string>
+                <string>Let</string>
+                <string>Ift</string>
+                <string>Ift</string>
+                <string>Iff</string>
+                <string>Error</string>
+                <string>abs</string>
+                <string>signum</string>
+                <string>min</string>
+                <string>max</string>
+                <string>Floor</string>
+                <string>Ceil</string>
+                <string>sqrt</string>
+                <string>List</string>
+                <string>Option</string>
+                <string>Some</string>
+                <string>None</string>
+                <string>Cell</string>
+                <string>Ref</string>
+                <string>swap</string>
+                <string>Semaphore</string>
+                <string>Channel</string>
+                <string>BoundedChannel</string>
+                <string>Array</string>
+                <string>ObservationSubject</string>
+                <string>Table</string>
+                <string>Counter</string>
+                <string>Dictionary</string>
+                <string>fst</string>
+                <string>snd</string>
+                <string>Interval</string>
+                <string>Intervals</string>
+                <string>Rclock</string>
+                <string>Rwait</string>
+                <string>Rtime</string>
+                <string>metronome</string>
+                <string>timeout</string>
+                <string>Vclock</string>
+                <string>Vawait</string>
+                <string>Vtime</string>
+                <string>curry</string>
+                <string>curry3</string>
+                <string>uncurry</string>
+                <string>uncurry3</string>
+                <string>flip</string>
+                <string>constant</string>
+                <string>defer</string>
+                <string>defer2</string>
+                <string>ignore</string>
+                <string>ignore2</string>
+                <string>compose</string>
+                <string>while</string>
+                <string>repeat</string>
+                <string>fork</string>
+                <string>forkMap</string>
+                <string>seq</string>
+                <string>seqMap</string>
+                <string>join</string>
+                <string>joinMap</string>
+                <string>alt</string>
+                <string>altMap</string>
+                <string>por</string>
+                <string>pand</string>
+                <string>collect</string>
+                <string>each</string>
+                <string>map</string>
+                <string>reverse</string>
+                <string>filter</string>
+                <string>head</string>
+                <string>tail</string>
+                <string>init</string>
+                <string>last</string>
+                <string>empty</string>
+                <string>index</string>
+                <string>append</string>
+                <string>foldl</string>
+                <string>foldl1</string>
+                <string>foldr</string>
+                <string>foldr1</string>
+                <string>afold</string>
+                <string>cfold</string>
+                <string>zipWith</string>
+                <string>zip</string>
+                <string>unzip</string>
+                <string>concat</string>
+                <string>length</string>
+                <string>take</string>
+                <string>drop</string>
+                <string>member</string>
+                <string>merge</string>
+                <string>mergeBy</string>
+                <string>sort</string>
+                <string>sortBy</string>
+                <string>mergeUnique</string>
+                <string>mergeUniqueBy</string>
+                <string>sortUnique</string>
+                <string>sortUniqueBy</string>
+                <string>group</string>
+                <string>groupBy</string>
+                <string>rangeBy</string>
+                <string>range</string>
+                <string>any</string>
+                <string>all</string>
+                <string>sum</string>
+                <string>product</string>
+                <string>and</string>
+                <string>or</string>
+                <string>minimum</string>
+                <string>maximum</string>
+                <string>Random</string>
+                <string>URandom</string>
+                <string>UUID</string>
+                <string>Prompt</string>
+                <string>signals</string>
+                <string>for</string>
+                <string>upto</string>
+                <string>Iterable</string>
+                <string>IterableToStream</string>
+                <string>iterableToList</string>
+                <string>arrayToList</string>
+                <string>JavaList</string>
+                <string>JavaLinkedList</string>
+                <string>listToJavaList</string>
+                <string>listToArray</string>
+                <string>fillArray</string>
+                <string>sliceArray</string>
+                <string>takePubs</string>
+                <string>withLock</string>
+                <string>synchronized</string>
+                <string>InvokeExecutable</string>
+                <string>OrcVersion</string>
+                <string>Print</string>
+                <string>Println</string>
+                <string>Read</string>
+                <string>Write</string>
+                <string>lines</string>
+                <string>unlines</string>
+                <string>words</string>
+                <string>unwords</string>
+                <string>characters</string>
+                <string>MakeSite</string>
+                <string>Browse</string>
+                <string>HTTP</string>
+                <string>ReadJSON</string>
+                <string>WriteJSON</string>
+                <string>XML</string>
+                <string>ReadXML</string>
+                <string>WriteXML</string>
+                <string>XMLElement</string>
+                <string>XMLText</string>
+                <string>XMLCData</string>
+                <string>IsXML</string>
+                <string>xml</string>
+                <string>xattr</string>
+            </keywords>
+
+            <state id="OrcDocComment" type="comment" foldable="yes" scope="comment.block.documentation.orc">
+                <begin><regex>\{--</regex></begin>
+                <end><regex>-\}</regex></end>
+                <keywords id="OrcDocTag" useforautocomplete="no" scope="comment.block.documentation.tags.orc">
+                    <regex>(?&lt;=[^\w\d]|^)(@\w+)</regex>
+                </keywords>
+                <import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+            </state>
+
+            <state id="SingleLineComment" type="comment" scope="comment.line.double-dash.orc">
+                <begin><regex>--</regex></begin>
+                <end><regex>[\n\r]</regex></end>
+                <import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+            </state>
+
+            <state id="Comment" type="comment" foldable="yes" scope="comment.block.orc">
+                <begin><regex>\{-</regex><autoend>-}</autoend></begin>
+                <end><regex>-\}</regex></end>
+                <import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+                <state-link state="Comment" />
+            </state>
+
+
+        </default>
+
+    </states>
+
+</syntax>
